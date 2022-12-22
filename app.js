@@ -72,3 +72,5 @@ function convertHumanAge(DogAge) {
 
 const myDogHumanAge = convertHumanAge(age);
 console.log(myDogHumanAge);
+
+// 값을 업데이트 해보겠습니당
