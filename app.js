@@ -1,130 +1,46 @@
+const loginInput = document.querySelector("#login-form input");
+const loginForm = document.querySelector("#login-form");
+const greeting = document.querySelector("#greeting");
 
-const player = {
-	name : "naim",
-	age : 27,
-};
+const HIDDEN_CLASSNAME = "hidden";
+const USERNAME_KEY = "username";
 
-console.log (player);
-
-// update object
-player.name = "kim";
-console.log (player);
-
-// add object
-player.pretty = "soon";
-console.log (player);
-
-// ===================================================================== //
-
-// basic function
-function plus(a, b) {
-    console.log(a + b);
-};
-
-plus(5, 10);
-
-
-function minusFive (c) {
-    console.log(c -5); // 5
-    console.log(c);    // 10 출력됨
-};
-
-minusFive (10); // 1. 이것 때문에
-
-// ===================================================================== //
-
-const calculator = {
-    add: function (a, b) {
-        console.log(a + b);
-    },
-
-    minus: function (a, b) {
-        console.log (a - b);
-    },
-
-    divide : function (a, b) {
-        console.log (a / b);
-    },
-
-    multi : function (a ,b) {
-        console.log (a * b);
-    },
-
-    square : function (a, b) {
-        console.log( a ** b );
-    }
-};
-
-calculator.add(3,2); 
-console.log(calculator.add(3,2));
-calculator.minus(3,2);
-calculator.divide(3,2);
-calculator.multi(3,2);
-calculator.square(3,2);
-
-// ===================================================================== //
-
-
-const age = 12;
-function convertHumanAge(DogAge) {
-    return DogAge + 40;
+function onLoginSubmit(event) {
+    //일단 submit 하게 되면 자동으로 새로고침 하는거 막아줘
+    event.preventDefault();
+    //id가 login-form 인 클래스에 hidden 을 추가해
+    loginForm.classList.add(HIDDEN_CLASSNAME);
+    
+    //유저 이름은 input에 입력하는 value가 될건데 그걸 username 이라고 부를거고
+    const username = loginInput.value;
+    //localStorage에 변수는 username, 값은 username이 될거야
+    localStorage.setItem(USERNAME_KEY, username);
+    
+    //그리고 이 함수를 실행해줘
+    paintGreetings(username);
 }
 
-const myDogHumanAge = convertHumanAge(age);
-console.log(myDogHumanAge);
-
-// 값을 업데이트 해보겠습니당
-// ===================================================================== //
-
-
-// 누군가가 title을 click하는 것을 listen할 거임 → 무언가를 해줘야함
-const h1 = document.querySelector("div.hello:first-child h1");
-
-// event 찾는 법 (on~ = event)
-console.dir(h1);
-
-
-function handleTitleClick(){
-
-    h1.style.color = "blue";
-    h1.style.fontSize = "50px";
-};
-
-function handleMouseEnter() {
-    h1.innerText = "mouse is here";
+    // username을 가지고 이 함수를 실행할텐데
+function paintGreetings(username) {
+    // greeting id를 가진 태그에 이런 텍스트를 써줘
+    greeting.innerText = `Hello ${username}`;
+    // greeting id를 가진 태그의 class 중 HIDDEN_CLASSNAME 을 지우고 = 보여줘
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-function handleMouiseLeave() {
-    h1.innerText = "mouse is gone";
+// localStorage에 저장된 유저 이름을 가져오는걸 saveUsername 이라고 할게
+const saveUsername = localStorage.getItem(USERNAME_KEY);
+
+// 저장된 유저가 없으면
+if(saveUsername === null) {
+    //form 을 보여줘
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    // 그리고 유저 정보 입력 해야하니까 대기해줘
+    loginForm.addEventListener("submit", onLoginSubmit);
+
+} else {
+    //그게 아니라면 h1 을 보여줘
+    paintGreetings(saveUsername);
 }
 
-function handleWidnowResize() {
-    document.body.style.backgroundColor = "tomato";
-}
-
-function handleWindowCopy() {
-    alert("copier")
-}
-
-function handleWindowOffline(){
-    alert("SOS no wifi");
-}
-
-function handleWindowOnline(){
-    alert("everything is okay");
-}
-
-h1.addEventListener("click", handleTitleClick); // = title.onclick = handleTitleClick;
-h1.addEventListener("mouseenter", handleMouseEnter);
-h1.addEventListener("mouseleave", handleMouiseLeave);
-
-window.addEventListener("resize", handleWidnowResize);
-window.addEventListener("copy", handleWindowCopy);
-window.addEventListener("offline", handleWindowOffline);
-window.addEventListener("online", handleWindowOnline);
-
-
-// JS 문법을 활용해서 HTML element를 가져오고
-// 가져온 element 에 eventListener를 추가해줌
-// 그리고 event 가 발생되면 어떤 function을 실행시키는거
 
