@@ -6,7 +6,7 @@
  - 바닐라 JS 기초부터 복습 <br><br>
 
 ### :two: Stack  <br>
-- 바닐라JS, HTML, CSS3 <br>
+- 바닐라JS, HTML, CSS3 <br><br>
 
 ### 3️⃣ Function
 - 로그인
