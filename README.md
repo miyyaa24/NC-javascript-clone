@@ -1,4 +1,6 @@
-## 바닐라 JS 클론 코딩
+## NC-clone-chrome
+
+노마드코더 클론코딩
 
 ### :one: Abstract
  - 개인 프로젝트 <br>
