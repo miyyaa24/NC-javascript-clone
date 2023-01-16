@@ -1,6 +1,5 @@
 ## NC-clone-chrome ㅣ 노마드코더 클론코딩
 
-<br>
 ### :one: Abstract
  - 개인 프로젝트 <br>
  - 크롬 확장프로그램 클론 코딩 <br>
