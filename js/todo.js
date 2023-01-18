@@ -3,6 +3,12 @@ const toDoInput = toDoForm.querySelector("#todo-form input");
 // = const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
+const toDos = [];
+
+function saveToDos() {
+    localStorage.setItem("todos", JSON.stringify(toDos));
+}
+
 
 // click 을 하게 되면 event가 발생되고
 // 그 event 안에는 많은 정보가 담겨져 있음
@@ -40,8 +46,12 @@ function handleToDoSubmit(event) {
     // 그래서 비게해도 (입력하면 입력창에서는 사라져야하니까) 그 값에 영향은 없는거구
     toDoInput.value='';
 
+    toDos.push(newTodo);
+
     //그리고 복사된 newToDo를 function paintToDo에 넣어주는것
     paintToDo(newTodo);
+
+    saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
