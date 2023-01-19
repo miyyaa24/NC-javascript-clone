@@ -3,9 +3,9 @@ const toDoInput = toDoForm.querySelector("#todo-form input");
 // = const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
-const TODOS_KEY = "toDos"
+const TODOS_KEY = "todos"
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos() {
     localStorage.setItem("todos", JSON.stringify(toDos));
@@ -47,9 +47,7 @@ function handleToDoSubmit(event) {
     
     // 그래서 비게해도 (입력하면 입력창에서는 사라져야하니까) 그 값에 영향은 없는거구
     toDoInput.value='';
-
     toDos.push(newTodo);
-
     //그리고 복사된 newToDo를 function paintToDo에 넣어주는것
     paintToDo(newTodo);
 
@@ -64,5 +62,6 @@ const savedToDos = localStorage.getItem(TODOS_KEY);
 // savedToDos !== null
 if(savedToDos) {
     const parsedToDos = JSON.parse(savedToDos);
-    parsedToDos.forEach((item) => console.log("this is the turn of", item)); 
+    toDos = parsedToDos;
+    parsedToDos.forEach(paintToDo); 
 }
