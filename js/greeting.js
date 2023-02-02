@@ -23,7 +23,7 @@ function onLoginSubmit(event) {
     // username을 가지고 이 함수를 실행할텐데
 function paintGreetings(username) {
     // greeting id를 가진 태그에 이런 텍스트를 써줘
-    greeting.innerText = `Hello ${username}`;
+    greeting.innerText = `${username} IS HERE`;
     // greeting id를 가진 태그의 class 중 HIDDEN_CLASSNAME 을 지우고 = 보여줘
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
@@ -42,5 +42,6 @@ if(saveUsername === null) {
     //그게 아니라면 h1 을 보여줘
     paintGreetings(saveUsername);
 }
+
 
 

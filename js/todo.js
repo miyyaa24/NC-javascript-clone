@@ -21,13 +21,17 @@ function deleteTodo (event) {
 function paintToDo(newTodo) {
     const li = document.createElement("li");
     li.id = newTodo.id
+    
+    const delButton = document.createElement("button");
     const span = document.createElement("span");
-    const button = document.createElement("button");
+    
+    li.appendChild(delButton);
     li.appendChild(span);
-    li.appendChild(button);
+    
     span.innerText = newTodo.text;
-    button.innerText = "X"
-    button.addEventListener("click", deleteTodo)
+    delButton.innerText = "×"
+
+    delButton.addEventListener("click", deleteTodo)
     toDoList.appendChild(li);
 }
 
@@ -57,4 +61,8 @@ if(savedToDos) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
     parsedToDos.forEach(paintToDo); 
+}
+
+if (window.localStorage.length !== 0) {
+    toDoForm.classList.remove(HIDDEN_CLASSNAME);
 }

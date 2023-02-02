@@ -1,3 +1,125 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Pretendard-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+
 .hidden {
     display : none;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#weather {
+    display: flex;
+    align-items: flex-start;
+    font-size: 15px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+#clock {
+    font-family: 'Pretendard-Bold';
+    font-size: 100px;
+    text-shadow: 2px;
+    display: flex;
+    align-content: center;
+    letter-spacing: -5px;
+}
+
+#quote {
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#greeting {
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 25px;
+    text-indent: 25px;
+    opacity: 80%;
+}
+
+body {
+    font-family: 'Pretendard-Regular';
+    color: white;
+    display: flex;
+    width : 100%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+img {
+    background-size: cover;
+    position:absolute;
+    width : 100%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    right:0px;
+    bottom:0px;
+    z-index: -1;
+    filter: brightness(40%);
+}
+
+
+input {
+    margin-top: 20px;
+    width: 250px;
+    border: none;
+    border-bottom: 3px solid white;
+    background-color: transparent;
+    font-family: 'Pretendard-Regular';
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* TO DO LIST */
+li {
+    font-family: 'Pretendard-Regular';
+    font-size : 14px;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+li > span {
+    align-items: center;
+    margin-right: 10px;
+}
+
+li > button {
+    border-radius: 100%;
+    border: 1px solid white;
+    color: white;
+    background-color: transparent;
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
 }
