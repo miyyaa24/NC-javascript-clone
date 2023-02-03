@@ -22,7 +22,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 10px;
 }
 
 #weather {
@@ -31,6 +30,7 @@
     align-items: flex-end;
     font-size: 12px;
     color: white;
+    margin-bottom: 15px;
 }
 
 #clock {
@@ -40,6 +40,7 @@
     display: flex;
     align-content: center;
     letter-spacing: -5px;
+    margin-bottom: 10px;
 }
 
 #quote {
