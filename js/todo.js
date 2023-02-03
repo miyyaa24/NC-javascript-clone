@@ -7,6 +7,10 @@ const TODOS_KEY = "todos"
 
 let toDos = [];
 
+if (window.localStorage.getItem(USERNAME_KEY) !== null) {
+    toDoForm.classList.remove(HIDDEN_CLASSNAME);
+}
+
 function saveToDos() {
     localStorage.setItem("todos", JSON.stringify(toDos));
 }
@@ -61,8 +65,4 @@ if(savedToDos) {
     const parsedToDos = JSON.parse(savedToDos);
     toDos = parsedToDos;
     parsedToDos.forEach(paintToDo); 
-}
-
-if (window.localStorage.length !== 0) {
-    toDoForm.classList.remove(HIDDEN_CLASSNAME);
 }

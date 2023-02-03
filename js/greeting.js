@@ -7,7 +7,7 @@ const USERNAME_KEY = "username";
 
 function onLoginSubmit(event) {
     //일단 submit 하게 되면 자동으로 새로고침 하는거 막아줘
-    event.preventDefault();
+    // event.preventDefault();
     //id가 login-form 인 클래스에 hidden 을 추가해
     loginForm.classList.add(HIDDEN_CLASSNAME);
     
